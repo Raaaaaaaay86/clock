@@ -82,8 +82,8 @@ body {
   transform: translate(-50%, -50%) rotate(($index * 5) + deg);
 }
 
-@for $i from 1 through 360 {
-  @if ($i % 6 != 0 and $i % 3 != 0 and $i <= 72) {
+@for $i from 1 through 72 {
+  @if ($i % 6 != 0 and $i % 3 != 0) {
     .scale-#{$i} {
       @include position-to-clock-center($i);
       &::after {
@@ -100,7 +100,7 @@ body {
     }
   }
 
-  @if ($i % 6 == 0 and $i <= 72) {
+  @if ($i % 6 == 0) {
     .scale-#{$i} {
       @include position-to-clock-center($i);
       &::after {
@@ -142,7 +142,7 @@ body {
     }
   }
 
-  @if (($i + 3) % 6 == 0 and $i <= 72) {
+  @if (($i + 3) % 6 == 0) {
     .scale-#{$i} {
       @include position-to-clock-center($i);
       &::after {
