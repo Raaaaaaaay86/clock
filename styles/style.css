@@ -43,7 +43,7 @@ body {
   position: relative;
 }
 
-.clock-minute {
+.pointer-minute {
   width: 10px;
   height: 100px;
   border-radius: 50px;
@@ -58,7 +58,7 @@ body {
   z-index: 1000;
 }
 
-.clock-hour {
+.pointer-hour {
   width: 7px;
   height: 75px;
   position: absolute;
@@ -72,7 +72,7 @@ body {
   z-index: 900;
 }
 
-.clock-second {
+.pointer-second {
   width: 10px;
   height: 135px;
   position: absolute;

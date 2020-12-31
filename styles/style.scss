@@ -34,6 +34,9 @@ body {
     border: 4px solid $dark;
     position: relative;
   }
+}
+
+.pointer {
   &-minute {
     width: 10px;
     height: 100px;
@@ -70,15 +73,19 @@ body {
   }
 }
 
+@mixin position-to-clock-center($index) {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(($index * 5) + deg);
+}
+
 @for $i from 1 through 360 {
   @if ($i % 6 != 0 and $i % 3 != 0 and $i <= 72) {
     .scale-#{$i} {
-      width: 10px;
-      height: 10px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(($i * 5) + deg);
+      @include position-to-clock-center($i);
       &::after {
         content: '';
         width: 2px;
@@ -95,12 +102,7 @@ body {
 
   @if ($i % 6 == 0 and $i <= 72) {
     .scale-#{$i} {
-      width: 10px;
-      height: 10px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(($i * 5) + deg);
+      @include position-to-clock-center($i);
       &::after {
         content: '';
         width: 1px;
@@ -114,12 +116,7 @@ body {
     }
 
     .am-#{$i} {
-      width: 10px;
-      height: 10px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(($i * 5) + deg);
+      @include position-to-clock-center($i);
       &::after {
         content: '#{$i / 6}';
         color: white;
@@ -132,12 +129,7 @@ body {
     }
 
     .pm-#{$i} {
-      width: 10px;
-      height: 10px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(($i * 5) + deg);
+      @include position-to-clock-center($i);
       &::after {
         content: '#{($i / 6) + 12}';
         color: white;
@@ -152,12 +144,7 @@ body {
 
   @if (($i + 3) % 6 == 0 and $i <= 72) {
     .scale-#{$i} {
-      width: 10px;
-      height: 10px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(($i * 5) + deg);
+      @include position-to-clock-center($i);
       &::after {
         content: '✦';
         font-size: 10px;
