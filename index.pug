@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet", href="./styles/reset.css")
+    link(rel="stylesheet", href="./styles/style.css")
+    title Document
+  body
+    div.clock-outside
+      div.clock-inside
+        - for (let i = 0; i < 73; i++) {
+          div(class=`scale-${i}`)
+        - }
+        - for (let i = 6; i < 78; i += 6) {
+          div(class=`am-${i}`)
+          div(class=`pm-${i}`)
+        - }
+        div(class="pointer-minute" id="pointer-minute")
+          svg(width="12" height="100")
+            path(d="M 5 96 L 5 60" stroke="white" fill="none" stroke-width="1")
+            circle(cx="5" cy="96" r="2" fill="white")
+        div(class="pointer-hour" id="pointer-hour")
+          svg(width="7" height="75")
+            path(d="M 3.5 10 L 3.5 30" stroke="black" fill="none" stroke-width="1")
+        div(class="pointer-second" id="pointer-second")
+          svg(width="12" height="135")
+            path(d="M 5 0 L 5 40 11 50 1 70 5 80 5 130" stroke="lightgreen" fill="none" stroke-width="1")
+            circle(cx="5" cy="4" r="4" fill="lightgreen")
+            circle(cx="5" cy="4" r="2" stroke="black" fill="lightgreen" stroke-width="1")
+  script(src="./js/index.js")
